@@ -1,0 +1,33 @@
+{
+  "name": "@splitmedialabs/supermailer-node",
+  "description": "Node JS library for Supermailer.",
+  "version": "1.0.3",
+  "license": "MIT",
+  "repository": "https://github.com/SplitmediaLabsLimited/supermailer-node",
+  "homepage": "https://github.com/SplitmediaLabsLimited/supermailer-node",
+  "bugs": "https://github.com/SplitmediaLabsLimited/supermailer-node/issues",
+  "main": "index.js",
+  "engines": {
+    "node": ">= 8"
+  },
+  "scripts": {
+    "test": "yarn test:recipients && yarn test:data",
+    "test:data": "jest __tests__/automated/data/*test.js",
+    "test:recipients": "yarn test:recipients:create && yarn test:recipients:update && yarn test:recipients:delete",
+    "test:recipients:create": "NODE_TLS_REJECT_UNAUTHORIZED=0 jest __tests__/automated/recipients/create.test.js",
+    "test:recipients:delete": "NODE_TLS_REJECT_UNAUTHORIZED=0 jest __tests__/automated/recipients/delete.test.js",
+    "test:recipients:update": "NODE_TLS_REJECT_UNAUTHORIZED=0 jest __tests__/automated/recipients/update.test.js"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "query-string": "^6.4.2"
+  },
+  "devDependencies": {
+    "eslint": "^6.0.0",
+    "eslint-plugin-jest": "^22.7.1",
+    "jest": "^24.8.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
