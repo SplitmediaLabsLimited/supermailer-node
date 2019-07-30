@@ -1,15 +1,12 @@
 module.exports = async function create() {
-  const payload = this.attributes;
+  const payload = {
+    email: this.email,
+    ...this.attributes,
+  };
 
   if (Object.entries(payload).length === 0) {
     throw new Error(
       'There is no data on the Supermailer data object. Set the data with Supermailer.data.add* methods before using Supermailer.recipients.create().'
-    );
-  }
-
-  if (typeof payload.email !== 'string') {
-    throw new Error(
-      `You need to set at least the email of type string on the Supermailer data object to create a recipient. Use Supermailer.data.addString('email', 'your_value') to do so.`
     );
   }
 

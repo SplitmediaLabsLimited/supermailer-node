@@ -1,4 +1,5 @@
-module.exports = async function update(currentEmail) {
+module.exports = async function update() {
+  const currentEmail = this.email;
   const payload = this.attributes;
 
   if (typeof currentEmail !== 'string') {
@@ -13,10 +14,8 @@ module.exports = async function update(currentEmail) {
     );
   }
 
-  const email = encodeURIComponent(currentEmail);
-
   try {
-    const response = await this.api.patch(`/api/supermailer/recipients/${email}`, payload);
+    const response = await this.api.patch(`/api/supermailer/recipients/${currentEmail}`, payload);
     return response.data;
   } catch (error) {
     console.log(error);

@@ -1,3 +1,5 @@
+const Recipient = require('./Recipient');
+
 class Supermailer {
   constructor(config) {
     if (
@@ -11,45 +13,24 @@ class Supermailer {
       );
     }
 
-    // Initialize config object
-    this.config = {
-      api: {
-        key: config.apiKey,
-        url: config.apiUrl,
-      },
-      namespace: config.namespace,
-    };
-
-    // Initialize api object
-    this.api = require('../lib/api').create({
-      baseURL: `https://${this.config.api.url}`,
-      headers: { 'X-Supermailer-Api-Key': this.config.api.key, 'X-Supermailer-Namespace': this.config.namespace },
+    const api = require('../lib/api').create({
+      baseURL: `https://${config.apiUrl}`,
+      headers: { 'X-Supermailer-Api-Key': config.apiKey, 'X-Supermailer-Namespace': config.namespace },
     });
 
+    // Initialize api object
+    this.api = api;
+
     // Initialize email methods
-    this.email = {
+    this.emails = {
       sendTransactional: require('./emails/sendTransactional').bind(this),
     };
 
-    // Initialize recipients methods
-    this.recipients = {
-      create: require('./recipients/create').bind(this),
-      update: require('./recipients/update').bind(this),
-      delete: require('./recipients/delete').bind(this),
-      logs: require('./recipients/logs').bind(this),
+    this.Recipient = function(email) {
+      if (typeof email !== 'string')
+        throw new Error('You need to pass an email string as the only parameter to this function.');
+      return new Recipient({ email, api });
     };
-
-    // Initialize the data methods
-    this.data = {
-      addBoolean: require('./data/addBoolean').bind(this),
-      addDate: require('./data/addDate').bind(this),
-      addEvent: require('./data/addEvent').bind(this),
-      addNumber: require('./data/addNumber').bind(this),
-      addString: require('./data/addString').bind(this),
-    };
-
-    // Initialize the attributes object for sending data through the library
-    this.attributes = {};
   }
 }
 

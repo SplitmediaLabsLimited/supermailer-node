@@ -1,14 +1,6 @@
-module.exports = async function _delete(email) {
-  if (typeof email !== 'string') {
-    throw new Error(
-      `Supermailer.recipients.delete parameter must be the current email of the user and must be a string.`
-    );
-  }
-
-  email = encodeURIComponent(email);
-
+module.exports = async function _delete() {
   try {
-    const response = await this.api.delete(`/api/supermailer/recipients/${email}`);
+    const response = await this.api.delete(`/api/supermailer/recipients/${this.email}`);
     return response.data;
   } catch (error) {
     console.log(error);
