@@ -1,11 +1,11 @@
-module.exports = function addBoolean(name, value) {
-  if (typeof name !== 'string' || name.length < 1 || typeof value !== 'boolean') {
-    throw new Error(
-      'Supermailer.data.addBoolean needs two parameters. First one is the name (string) and second one is the value (boolean).'
-    );
-  }
+const { argsValidation } = require('../../lib/helpers');
 
-  const bool = value;
+module.exports = function addBoolean(name, value) {
+  argsValidation.call(arguments);
+
+  if (value === null) return (this.attributes[name] = null);
+
+  const bool = String(value) === '1' || String(value) === 'true';
 
   this.attributes[name] = bool;
 

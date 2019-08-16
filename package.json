@@ -11,12 +11,7 @@
     "node": ">= 8"
   },
   "scripts": {
-    "test": "yarn test:recipients && yarn test:data",
-    "test:data": "jest __tests__/automated/data/*test.js",
-    "test:recipients": "yarn test:recipients:create && yarn test:recipients:update && yarn test:recipients:delete",
-    "test:recipients:create": "NODE_TLS_REJECT_UNAUTHORIZED=0 jest __tests__/automated/recipients/create.test.js",
-    "test:recipients:delete": "NODE_TLS_REJECT_UNAUTHORIZED=0 jest __tests__/automated/recipients/delete.test.js",
-    "test:recipients:update": "NODE_TLS_REJECT_UNAUTHORIZED=0 jest __tests__/automated/recipients/update.test.js"
+    "test": "TZ=UTC jest ./test/*"
   },
   "dependencies": {
     "axios": "^0.18.0",

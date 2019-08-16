@@ -1,11 +1,11 @@
-module.exports = function addString(name, value) {
-  if (typeof name !== 'string' || name.length < 1 || typeof value !== 'string' || value.length < 1) {
-    throw new Error(
-      'Supermailer.data.addString needs two parameters. First one is the name (string) and second one is the value (string).'
-    );
-  }
+const { argsValidation } = require('../../lib/helpers');
 
-  const string = value;
+module.exports = function addString(name, value) {
+  argsValidation.call(arguments);
+
+  if (value === null) return (this.attributes[name] = null);
+
+  const string = String(value);
 
   this.attributes[name] = string;
 

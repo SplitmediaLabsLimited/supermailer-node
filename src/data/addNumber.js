@@ -1,11 +1,15 @@
-module.exports = function addInteger(name, value) {
-  if (typeof name !== 'string' || name.length < 1 || typeof value !== 'number' || value.length < 1) {
-    throw new Error(
-      'Supermailer.data.addInteger needs two parameters. First one is the name (string) and second one is the value (number).'
-    );
-  }
+const { argsValidation } = require('../../lib/helpers');
 
-  const number = value;
+module.exports = function addNumber(name, value) {
+  argsValidation.call(arguments);
+
+  if (value === null) return (this.attributes[name] = null);
+
+  const number = Number(value);
+
+  if (isNaN(number)) {
+    throw new Error('The second parameter is a string that cannot be converted into a number.');
+  }
 
   this.attributes[name] = number;
 

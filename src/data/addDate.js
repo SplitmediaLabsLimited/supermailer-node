@@ -1,21 +1,11 @@
-const isParseableDate = dateString => !!Date.parse(dateString);
-
-const isSlashFormat = dateString => dateString.includes('/');
+const { argsValidation } = require('../../lib/helpers');
 
 module.exports = function addDate(name, value) {
-  if (typeof name !== 'string' || name.length < 1 || typeof value !== 'string' || value.length < 1) {
-    throw new Error(
-      'Supermailer.data.addDate needs two parameters. First one is the name of the attribute (string) and the second one is a date string.'
-    );
-  }
+  argsValidation.call(arguments);
 
-  if (isSlashFormat(value)) {
-    throw new Error("You can't pass a date string with slashes in it.");
-  }
+  if (value === null) return (this.attributes[name] = null);
 
-  if (!isParseableDate(value)) {
-    throw new Error('You need to pass a valid date string as the second parameter to Supermailer.data.addDate.');
-  }
+  if (value === '') value = new Date();
 
   const date = new Date(Date.parse(value)).toISOString();
 
