@@ -14,11 +14,6 @@ module.exports = async function update() {
     );
   }
 
-  try {
-    const response = await this.api.patch(`/api/supermailer/recipients/${currentEmail}`, payload);
-    return response.data;
-  } catch (error) {
-    console.log(error);
-    return false;
-  }
+  const response = await this.api.patch(`/api/supermailer/recipients/${currentEmail}`, payload);
+  return response.data;
 };

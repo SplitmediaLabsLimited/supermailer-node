@@ -10,11 +10,6 @@ module.exports = async function create() {
     );
   }
 
-  try {
-    const response = await this.api.post(`/api/supermailer/recipients`, payload);
-    return response.data;
-  } catch (error) {
-    console.log(error);
-    return false;
-  }
+  const response = await this.api.post(`/api/supermailer/recipients`, payload);
+  return response.data;
 };
