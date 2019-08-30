@@ -15,6 +15,7 @@ module.exports = class Recipient {
       addEvent: require('./data/addEvent').bind(this),
       addNumber: require('./data/addNumber').bind(this),
       addString: require('./data/addString').bind(this),
+      set: require('./data/set').bind(this),
     };
 
     this.attributes = {};

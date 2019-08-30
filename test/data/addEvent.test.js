@@ -1,5 +1,7 @@
-const Recipient = require('../src/Recipient');
+const Recipient = require('../../src/Recipient');
 const recipient = new Recipient({}); // Don't need to init with object values for unit tests
+
+test('Should accept null as a value', () => expect(recipient.data.addEvent('test', null)).toEqual(null));
 
 test('Should set the proper attribute on the date object', () => {
   const r = new Recipient({}); // Don't need to init with object values for unit tests

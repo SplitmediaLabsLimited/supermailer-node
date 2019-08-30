@@ -1,4 +1,4 @@
-const { argsValidation } = require('../../lib/helpers');
+const { argsValidation } = require('../lib/helpers');
 
 module.exports = function addDate(name, value) {
   argsValidation.call(arguments);
@@ -7,9 +7,7 @@ module.exports = function addDate(name, value) {
 
   if (value === '') value = new Date();
 
-  const date = new Date(Date.parse(value)).toISOString();
+  this.attributes[name] = new Date(Date.parse(value)).toISOString();
 
-  this.attributes[name] = date;
-
-  return date;
+  return this.attributes[name];
 };

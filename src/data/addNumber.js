@@ -1,4 +1,4 @@
-const { argsValidation } = require('../../lib/helpers');
+const { argsValidation } = require('../lib/helpers');
 
 module.exports = function addNumber(name, value) {
   argsValidation.call(arguments);
@@ -13,5 +13,5 @@ module.exports = function addNumber(name, value) {
 
   this.attributes[name] = number;
 
-  return number;
+  return this.attributes[name];
 };

@@ -13,7 +13,7 @@ class Supermailer {
       );
     }
 
-    const api = require('../lib/api').create({
+    const api = require('./lib/api').create({
       baseURL: `https://${config.apiUrl}`,
       headers: { 'X-Supermailer-Api-Key': config.apiKey, 'X-Supermailer-Namespace': config.namespace },
     });

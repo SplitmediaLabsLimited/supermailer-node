@@ -1,4 +1,4 @@
-const Recipient = require('../src/Recipient');
+const Recipient = require('../../src/Recipient');
 const recipient = new Recipient({}); // Don't need to init with object values for unit tests
 
 test('Should set the proper attribute on the data object', () => {
@@ -10,6 +10,11 @@ test('Should set the proper attribute on the data object', () => {
 test(`Shouldn't throw with empty string value`, () => {
   const date = recipient.data.addDate('test', '');
   expect(date).toEqual(date);
+});
+
+test('Should accept a date object as value', () => {
+  const date = recipient.data.addDate('test', new Date());
+  expect(date.length).toEqual(24);
 });
 
 test('Should return 2018-12-23T00:00:00.000Z', () =>

@@ -1,4 +1,4 @@
-const Recipient = require('../src/Recipient');
+const Recipient = require('../../src/Recipient');
 const recipient = new Recipient({}); // Don't need to init with object values for unit tests
 
 test('Should set the proper attribute on the data object', () => {

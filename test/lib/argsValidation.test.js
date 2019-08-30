@@ -1,4 +1,4 @@
-const { argsValidation } = require('../lib/helpers');
+const { argsValidation } = require('../../src/lib/helpers');
 
 function mockDataFunction(name, value) {
   argsValidation.call(arguments);

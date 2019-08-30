@@ -1,15 +1,11 @@
-const { argsValidation } = require('../../lib/helpers');
+const { argsValidation } = require('../lib/helpers');
 
-module.exports = function addEvent(name) {
-  if (typeof name !== 'string' || name.length < 1) {
-    throw new Error(
-      `First parameter passed to ${parentFunctionName} has to be the name of the attribute an has to be of type string.`
-    );
-  }
+module.exports = function addEvent(name, value) {
+  argsValidation.call(arguments);
 
-  const date = new Date().toISOString();
+  if (value === null) return (this.attributes[name] = null);
 
-  this.attributes[name] = date;
+  this.attributes[name] = new Date().toISOString();
 
-  return date;
+  return this.attributes[name];
 };
