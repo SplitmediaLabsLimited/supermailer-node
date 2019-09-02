@@ -3,9 +3,9 @@ const { argsValidation } = require('../lib/helpers');
 module.exports = function addEvent(name, value) {
   argsValidation.call(arguments);
 
-  if (value === null) return (this.attributes[name] = null);
+  if (value === null) return (this.data[name] = null);
 
-  this.attributes[name] = new Date().toISOString();
+  this.data[name] = new Date().toISOString();
 
-  return this.attributes[name];
+  return this.data[name];
 };

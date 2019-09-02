@@ -1,7 +1,7 @@
 module.exports = async function create() {
   const payload = {
     email: this.email,
-    ...this.attributes,
+    ...this.data,
   };
 
   if (Object.entries(payload).length === 0) {

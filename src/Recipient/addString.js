@@ -3,9 +3,9 @@ const { argsValidation } = require('../lib/helpers');
 module.exports = function addString(name, value) {
   argsValidation.call(arguments);
 
-  if (value === null) return (this.attributes[name] = null);
+  if (value === null) return (this.data[name] = null);
 
-  this.attributes[name] = String(value);
+  this.data[name] = String(value);
 
-  return this.attributes[name];
+  return this.data[name];
 };

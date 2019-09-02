@@ -9,6 +9,5 @@ module.exports = async function logs(offset = 0, limit = 100) {
   const payload = { filterBy: JSON.stringify({ email }), page: offset, pageSize: limit };
   const query = qs.stringify(payload);
   const response = await this.api.get(`/api/supermailer/logs?${query}`);
-
   return response.data.results;
 };

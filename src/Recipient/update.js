@@ -1,6 +1,6 @@
 module.exports = async function update() {
   const currentEmail = this.email;
-  const payload = this.attributes;
+  const payload = this.data;
 
   if (typeof currentEmail !== 'string') {
     throw new Error(

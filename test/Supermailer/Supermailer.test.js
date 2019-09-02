@@ -1,4 +1,4 @@
-const Supermailer = require('../src/Supermailer');
+const Supermailer = require('../../src/Supermailer');
 
 test('Should throw when not passing the correct config', () => {
   expect(() => {
