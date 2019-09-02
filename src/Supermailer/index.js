@@ -13,12 +13,11 @@ class Supermailer {
       );
     }
 
+    // Initialize api object
     const api = require('../lib/api').create({
       baseURL: `https://${config.apiUrl}`,
       headers: { 'X-Supermailer-Api-Key': config.apiKey, 'X-Supermailer-Namespace': config.namespace },
     });
-
-    // Initialize api object
     this.api = api;
 
     // Initialize email methods
@@ -27,8 +26,9 @@ class Supermailer {
     };
 
     this.Recipient = function(email) {
-      if (typeof email !== 'string')
+      if (typeof email !== 'string') {
         throw new Error('You need to pass an email string as the only parameter to this function.');
+      }
       return new Recipient({ email, api });
     };
   }
