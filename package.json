@@ -12,7 +12,8 @@
   },
   "scripts": {
     "test:all": "TZ=UTC jest ./test/*",
-    "test": "TZ=UTC jest"
+    "test": "TZ=UTC jest",
+    "pushpublish": "git push && npm publish"
   },
   "dependencies": {
     "axios": "^0.18.0",
