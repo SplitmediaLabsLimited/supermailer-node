@@ -2,6 +2,10 @@ const { argsValidation } = require('../lib/helpers');
 
 module.exports = function addData(obj = {}) {
   Object.entries(obj).forEach(([name, value]) => {
+    if (value === null) {
+      return (this.data[name] = null);
+    }
+
     const type = typeof value;
 
     if (type === 'string') return this.addString(name, value);
