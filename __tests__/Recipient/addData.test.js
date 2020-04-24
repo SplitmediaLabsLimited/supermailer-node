@@ -15,6 +15,7 @@ test('Should set the right attributes and infer the type correctly on the recipi
     date: new Date(),
     number: 1,
     string: 'string',
+    removeAttribute: null,
   });
 
   expect(typeof r.data.number).toEqual('number');
@@ -28,6 +29,8 @@ test('Should set the right attributes and infer the type correctly on the recipi
 
   expect(typeof r.data.boolean).toEqual('boolean');
   expect(r.data.boolean).toEqual(false);
+
+  expect(r.data.removeAttribute).toEqual(null);
 });
 
 test("Shouldn't overwrite the attributes object when using set after adding data with other methods", () => {
@@ -39,11 +42,13 @@ test("Shouldn't overwrite the attributes object when using set after adding data
     date: new Date(),
     number: 1,
     string: 'string',
+    removeAttribute: null,
   });
 
   expect(r.data.boolean).toEqual(false);
   expect(r.data.date.length).toEqual(24);
   expect(r.data.number).toEqual(1);
   expect(r.data.string).toEqual('string');
+  expect(r.data.removeAttribute).toEqual(null);
   expect(r.data.test).toEqual('123');
 });
