@@ -15,7 +15,7 @@
     "pushpublish": "git push && npm publish"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "query-string": "^6.4.2"
   },
   "devDependencies": {
