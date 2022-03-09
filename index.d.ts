@@ -12,9 +12,8 @@ declare module '@splitmedialabs/supermailer-node' {
   interface SendTransactionalArgs {
     templateGroup: string;
     recipientEmail: string;
-
-    language?: string;
-    templateData?: Record<string, string>;
+    language: string;
+    templateData: Record<string, string>;
     recipientName?: string;
   }
 
