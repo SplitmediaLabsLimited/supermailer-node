@@ -1,8 +1,9 @@
 {
   "name": "@splitmedialabs/supermailer-node",
   "description": "Node JS library for Supermailer.",
-  "version": "3.0.1",
+  "version": "3.1.2",
   "license": "MIT",
+  "types": "index.d.ts",
   "repository": "https://github.com/SplitmediaLabsLimited/supermailer-node",
   "homepage": "https://github.com/SplitmediaLabsLimited/supermailer-node",
   "bugs": "https://github.com/SplitmediaLabsLimited/supermailer-node/issues",
