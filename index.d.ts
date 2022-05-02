@@ -15,6 +15,7 @@ declare module '@splitmedialabs/supermailer-node' {
     language: string;
     templateData: Record<string, string>;
     recipientName?: string;
+    forceSend?: boolean;
   }
 
   export default class Supermailer {
