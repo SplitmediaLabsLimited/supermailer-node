@@ -24,9 +24,6 @@
     "eslint-plugin-jest": "^22.7.1",
     "jest": "^24.8.0"
   },
-  "engines": {
-    "node": ">=16"
-  },
   "volta": {
     "node": "16.15.0",
     "yarn": "1.22.18"
