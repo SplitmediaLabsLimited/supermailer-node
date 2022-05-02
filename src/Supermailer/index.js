@@ -25,7 +25,7 @@ class Supermailer {
       sendTransactional: require('./emails/sendTransactional').bind(this),
     };
 
-    this.Recipient = function(email) {
+    this.Recipient = function (email) {
       if (typeof email !== 'string') {
         throw new Error('You need to pass an email string as the only parameter to this function.');
       }
