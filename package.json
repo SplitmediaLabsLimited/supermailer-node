@@ -1,6 +1,6 @@
 {
   "name": "@splitmedialabs/supermailer-node",
-  "version": "3.4.0",
+  "version": "5.0.0",
   "description": "Node JS library for Supermailer.",
   "homepage": "https://github.com/SplitmediaLabsLimited/supermailer-node",
   "bugs": "https://github.com/SplitmediaLabsLimited/supermailer-node/issues",
