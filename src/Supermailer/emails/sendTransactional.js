@@ -9,11 +9,6 @@ module.exports = async function sendTransactional(payload) {
     );
   }
 
-  try {
-    const response = await this.api.post('/api/supermailer/transactionals/send', payload);
-    return response.data;
-  } catch (error) {
-    console.log(error);
-    return false;
-  }
+  const response = await this.api.post('/api/supermailer/transactionals/send', payload);
+  return response.data;
 };

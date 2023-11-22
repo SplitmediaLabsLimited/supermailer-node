@@ -1,29 +1,31 @@
 {
   "name": "@splitmedialabs/supermailer-node",
+  "version": "5.0.0",
   "description": "Node JS library for Supermailer.",
-  "version": "3.0.1",
-  "license": "MIT",
-  "repository": "https://github.com/SplitmediaLabsLimited/supermailer-node",
   "homepage": "https://github.com/SplitmediaLabsLimited/supermailer-node",
   "bugs": "https://github.com/SplitmediaLabsLimited/supermailer-node/issues",
+  "repository": "https://github.com/SplitmediaLabsLimited/supermailer-node",
+  "license": "MIT",
   "main": "index.js",
-  "engines": {
-    "node": ">= 8"
-  },
+  "types": "index.d.ts",
   "scripts": {
-    "test": "TZ=UTC jest --watch",
-    "pushpublish": "git push && npm publish"
+    "pushpublish": "git push && npm publish",
+    "test": "TZ=UTC jest --watch"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "query-string": "^6.4.2"
+    "axios": "^0.26.0",
+    "query-string": "^7.1.1"
   },
   "devDependencies": {
     "eslint": "^6.0.0",
     "eslint-plugin-jest": "^22.7.1",
     "jest": "^24.8.0"
   },
-  "jest": {
-    "testEnvironment": "node"
+  "volta": {
+    "node": "18.17.1",
+    "yarn": "1.22.18"
   }
 }

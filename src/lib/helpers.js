@@ -1,4 +1,4 @@
-module.exports.argsValidation = function() {
+module.exports.argsValidation = function () {
   const args = this;
   const functionName = args.callee.name;
   const name = args[0];
